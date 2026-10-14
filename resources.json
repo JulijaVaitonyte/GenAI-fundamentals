@@ -1,12 +1,12 @@
 {
-  "title": "The Generative AI stack",
-  "subtitle": "From language models to the chips and energy behind them. Explore the layers that turn a model into an assistant—and the physical infrastructure that makes it possible.",
+  "title": "Hand-picked resources for getting to know generative AI",
+  "subtitle": "Welcome! This is a curated list of resources for getting familiar with generative AI, collected in one place. The materials vary in depth, but most assume no background in the field, so you can start wherever you feel comfortable. Everything is organized by topic, so you can work through them in order or jump straight to what interests you. Whether you want to understand how these systems work, what they can and cannot do, or how they affect society, you will find a place to begin. The collection is reviewed regularly.",
   "sections": [
     {
       "id": "models",
       "title": "Models & assistants",
       "label": "The software layer",
-      "intro": "Explore how language models are developed through pre-training and post-training, and distinguish a base model from the assistant or agent built around it. Use this section to connect model capabilities with the application layer.",
+      "intro": "Explore how language models are developed through pre-training and post-training, and distinguish a base model from the assistant or agent built around it.",
       "question": "What does an assistant add around a language model? Consider instructions, tools, memory and the interface.",
       "resources": [
         {
@@ -14,15 +14,22 @@
           "type": "Video",
           "meta": "YouTube · Course-selected resource",
           "description": "The LLM lecture selected for Module 1. Use it as a starting point for exploring the model layer.",
-          "url": "https://www.youtube.com/watch?v=Q5baLehv5So"
+          "url": "https://youtu.be/7xTGNNLPyMI"
+        },
+        {
+          "title": "Interactive LLM visualisation",
+          "type": "Interactive",
+          "action": "Explore the visualisation",
+          "caption": "Explore the inner workings of a transformer language model through an interactive visualisation.",
+          "url": "https://bbycroft.net/llm"
         }
       ]
     },
     {
       "id": "chips",
-      "title": "Chips & data centres",
+      "title": "Chips, data centres & energy",
       "label": "The physical layer",
-      "intro": "Follow the stack from software to physical infrastructure. This section brings together semiconductor supply chains and the data centres that house computing hardware.",
+      "intro": "Dive deep into the chips, data centres and energy that power AI.",
       "question": "Where can a bottleneck in the physical stack constrain the development or deployment of AI?",
       "resources": [
         {
@@ -33,22 +40,6 @@
           "url": "https://www.youtube.com/watch?v=M_rJX-OUzEw"
         },
         {
-          "title": "The AI supply chain & infrastructure",
-          "type": "PDF",
-          "meta": "IEA · Energy and AI · pp. 30–34",
-          "description": "Suggested reading: the AI supply chain and the different types of infrastructure that support it.",
-          "url": "assets/EnergyandAI.pdf#page=30"
-        }
-      ]
-    },
-    {
-      "id": "energy",
-      "title": "Energy & AI",
-      "label": "Powering the stack",
-      "intro": "Examine the relationship between AI and electricity: the energy used to train and run models, the needs of data centres, and the wider energy system. The IEA report provides the main reading for this section.",
-      "question": "How would you distinguish the energy required for training from the energy required to serve users over time?",
-      "resources": [
-        {
           "title": "Energy and AI",
           "type": "PDF",
           "meta": "International Energy Agency · 2025 · 304 pages",
@@ -58,18 +49,15 @@
       ]
     },
     {
-      "id": "deepseek",
-      "title": "DeepSeek & energy",
-      "label": "Case study",
-      "intro": "Bring the layers together through the Module 1 case study. Use the report’s discussion of model efficiency and inference-time scaling to examine the relationship between technical improvements and energy demand.",
-      "question": "Does a more efficient model necessarily mean lower total electricity demand? What evidence would you need to answer that question?",
+      "id": "state-of-ai",
+      "title": "State of AI in 2026",
+      "intro": "Explore the State of AI Report 2026 for an overview of developments in AI research, industry, policy and safety.",
       "resources": [
         {
-          "title": "Model efficiency and inference",
-          "type": "PDF",
-          "meta": "IEA · Energy and AI · Start at p. 43",
-          "description": "Suggested case-study reading on model architecture, inference-time scaling and the energy implications of reasoning models, including DeepSeek-R1.",
-          "url": "assets/EnergyandAI.pdf#page=43"
+          "title": "State of AI Report 2026",
+          "type": "Report",
+          "action": "Explore the report",
+          "url": "https://www.stateof.ai/"
         }
       ]
     }

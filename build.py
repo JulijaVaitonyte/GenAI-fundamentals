@@ -31,15 +31,13 @@ def build():
                 local = (ROOT / parsed.path).resolve()
                 if ROOT not in local.parents or not local.is_file():
                     raise ValueError(f'Missing or unsafe local resource: {url}')
-            cards.append(f'''<a class="resource" href="{text(url)}" target="_blank" rel="noopener noreferrer">
-            <span class="type">{text(resource['type'])}</span><div><p class="meta">{text(resource['meta'])}</p>
-            <h3>{text(resource['title'])}</h3><p>{text(resource['description'])}</p>
-            <span class="action">{'Watch video' if resource['type']=='Video' else 'Open PDF'} <span aria-hidden="true">↗</span><span class="sr"> (opens in a new tab)</span></span></div></a>''')
-        sections.append(f'''<details id="{text(sid)}"><summary><span class="number">0{number}</span><span><small>{text(section['label'])}</small><h2>{text(section['title'])}</h2></span><span class="plus" aria-hidden="true">+</span></summary>
-        <div class="content"><p class="intro">{text(section['intro'])}</p><div class="resources">{''.join(cards)}</div>
-        <aside><strong>Think about it</strong><p>{text(section['question'])}</p></aside></div></details>''')
+            action = resource.get('action', 'Watch video' if resource['type'] == 'Video' else 'Open PDF')
+            caption = f'<p class="resource-caption">{text(resource["caption"])}</p>' if resource.get('caption') else ''
+            cards.append(f'''<div class="resource-item">{caption}<a class="resource" href="{text(url)}" target="_blank" rel="noopener noreferrer" aria-label="{text(action)}: {text(resource['title'])} (opens in a new tab)">{text(action)} <span aria-hidden="true">↗</span></a></div>''')
+        sections.append(f'''<details id="{text(sid)}"><summary><span class="number">0{number}</span><h2>{text(section['title'])}</h2><span class="plus" aria-hidden="true">+</span></summary>
+        <div class="content"><p class="intro">{text(section['intro'])}</p><div class="resources">{''.join(cards)}</div></div></details>''')
     template = (ROOT / 'template.html').read_text(encoding='utf-8')
-    for key, value in {'TITLE':text(data['title']), 'SUBTITLE':text(data['subtitle']), 'NAV':''.join(nav), 'SECTIONS':''.join(sections)}.items():
+    for key, value in {'TITLE':text(data['title']).replace('generative AI', '<span class="keep-together">generative AI</span>'), 'SUBTITLE':text(data['subtitle']), 'NAV':''.join(nav), 'SECTIONS':''.join(sections)}.items():
         template = template.replace('{{'+key+'}}', value)
     (ROOT / 'index.html').write_text(template, encoding='utf-8')
     (ROOT / '.nojekyll').touch()
